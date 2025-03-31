@@ -50,7 +50,6 @@ class DonutTile extends StatelessWidget {
                 ),
               ],
             ),
-            //donut price
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               child: Image.asset(imageName),
@@ -58,27 +57,44 @@ class DonutTile extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  donutFlavor, // Ej: "Nuts Caramel"
+                  donutFlavor,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 SizedBox(height: 4),
                 Text(
-                  "Dunkin's", // Texto fijo
+                  "Dunkin's",
                   style: TextStyle(color: Colors.grey[600], fontSize: 14),
                 ),
               ],
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("Add"),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: donutColor[200],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
+            // Fila para los iconos
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Corazón
+                  IconButton(
+                    icon: Icon(Icons.favorite_border),
+                    color: Colors.grey,
+                    onPressed: () {},
+                  ),
+                  // Botón + (reemplazando el "Add")
+                  IconButton(
+                    icon: Icon(Icons.add),
+                    color: donutColor[800], // Usamos un color más oscuro del tema
+                    iconSize: 28, // Un poco más grande
+                    onPressed: () {},
+                    style: IconButton.styleFrom(
+                      backgroundColor: donutColor[200], // Mismo color que tenía el botón
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            //Icons
           ],
         ),
       ),
