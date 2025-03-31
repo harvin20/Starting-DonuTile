@@ -23,10 +23,11 @@ import 'package:paginatopicos/utils/donut_tile.dart';
           padding: const EdgeInsets.all(12),
           child: Column(
             children: [
-              Expanded(  // This ensures that the GridView takes the remaining space
+              Expanded( 
                 child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                  itemCount: donutsOnSale.length, // Dynamically use the length of the list
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+                   childAspectRatio: 0.8,),
+                  itemCount: donutsOnSale.length, 
                   itemBuilder: (context, index) {
                     return DonutTile(
                       donutFlavor: donutsOnSale[index][0],

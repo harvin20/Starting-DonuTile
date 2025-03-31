@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(fontSize: 32),
                   ),
                   Text(
-                    " eat",
+                    " Eat",
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
