@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paginatopicos/utils/donut_tile.dart';
 
-
-
   class DonutTab extends StatelessWidget {
     // List of donuts
     final List donutsOnSale = [
@@ -18,7 +16,6 @@ import 'package:paginatopicos/utils/donut_tile.dart';
     @override
     Widget build(BuildContext context) {
       return Scaffold(
-        appBar: AppBar(title: Text('Donut Sale')),
         body: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(

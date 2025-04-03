@@ -5,6 +5,7 @@ import 'package:paginatopicos/tab/pancakes_tab.dart';
 import 'package:paginatopicos/tab/pizza_tab.dart';
 import 'package:paginatopicos/tab/smoothie_tab.dart';
 import 'package:paginatopicos/utils/mytab.dart';
+import 'package:paginatopicos/utils/shopping_cart.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,10 +17,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<Widget> myTabs = [
     const Mytab(iconPath: "lib/icons/donut.png"),
-    Mytab(iconPath: "lib/icons/pizza.png"),
-    Mytab(iconPath: "lib/icons/smoothie.png"),
-    Mytab(iconPath: "lib/icons/burger.png"),
-    Mytab(iconPath: "lib/icons/pancakes.png"),
+    const Mytab(iconPath: "lib/icons/pizza.png"),
+    const Mytab(iconPath: "lib/icons/smoothie.png"),
+    const Mytab(iconPath: "lib/icons/burger.png"),
+    const Mytab(iconPath: "lib/icons/pancakes.png"),
   ];
 
   @override
@@ -65,7 +66,6 @@ class _HomePageState extends State<HomePage> {
 
             // 3. Contenido de pestañas (TabBarView)
             Expanded(
-              // <-- Agregamos Expanded para que TabBarView use el espacio restante
               child: TabBarView(
                 children: [
                   DonutTab(),
@@ -76,6 +76,9 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            
+            //carrito
+            ShoppingCart(),
           ],
         ),
       ),
