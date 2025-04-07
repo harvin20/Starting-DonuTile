@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:paginatopicos/utils/donut_tile.dart';
 import 'package:paginatopicos/utils/pancakes_tile.dart';
 
   class  PancakesTab extends StatelessWidget {
     // List of donuts
-    final List donutsOnSale = [
+    final List pancakesOnSale = [
       // [ donutFlavor, donutPrice, donutColor, imageName ]
-      ["Ice Cream", "36", Colors.blue, "lib/images/icecream_donut.png"],
-      ["Strawberry", "45", Colors.red, "lib/images/strawberry_donut.png"],
-      ["Grape Ape", "84", Colors.purple, "lib/images/grape_donut.png"],
-      ["Choco", "95", Colors.brown, "lib/images/chocolate_donut.png"]
+      ["single", "36", Colors.blue, "lib/images/pancakes/pancakes1.png"],
+      ["more love", "45", Colors.red, "lib/images/pancakes/pancakes2.png"],
+      ["more blue", "84", Colors.purple, "lib/images/pancakes/pancakes3.png"],
+      ["more Choco", "95", Colors.brown, "lib/images/pancakes/pancakes4.png"]
     ];
 
       PancakesTab({super.key});
@@ -17,6 +16,7 @@ import 'package:paginatopicos/utils/pancakes_tile.dart';
     @override
     Widget build(BuildContext context) {
       return Scaffold(
+         appBar: AppBar(title: Text('pancakes')),
         body: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
@@ -25,13 +25,13 @@ import 'package:paginatopicos/utils/pancakes_tile.dart';
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
                    childAspectRatio: 0.8,),
-                  itemCount: donutsOnSale.length, 
+                  itemCount: pancakesOnSale.length, 
                   itemBuilder: (context, index) {
                     return PancakesTile(
-                      donutFlavor: donutsOnSale[index][0],
-                      donutPrice: donutsOnSale[index][1],
-                      donutColor: donutsOnSale[index][2],
-                      imageName: donutsOnSale[index][3],
+                      pancakesFlavor: pancakesOnSale[index][0],
+                      donutPrice: pancakesOnSale[index][1], 
+                      donutColor: pancakesOnSale[index][2],
+                      imageName: pancakesOnSale[index][3],
                     );
                   },
                 ),

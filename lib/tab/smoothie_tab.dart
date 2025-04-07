@@ -3,12 +3,12 @@ import 'package:paginatopicos/utils/smoothie_tile.dart';
 
 class SmoothieTab extends StatelessWidget {
     // List of donuts
-    final List donutsOnSale = [
+    final List smoothiesOnSale = [
       // [ donutFlavor, donutPrice, donutColor, imageName ]
-      ["Ice Cream", "36", Colors.blue, "lib/images/icecream_donut.png"],
-      ["Strawberry", "45", Colors.red, "lib/images/strawberry_donut.png"],
-      ["Grape Ape", "84", Colors.purple, "lib/images/grape_donut.png"],
-      ["Choco", "95", Colors.brown, "lib/images/chocolate_donut.png"]
+      ["arandanos", "36", Colors.blue, "lib/images/smoothie/smoothie_arandanos.png"],
+      ["frambuesa", "45", Colors.red, "lib/images/smoothie/smoothie_arandanosframbuesa.png"],
+      ["naranja", "84", Colors.purple,"lib/images/smoothie/smoothie_naranja.png"],
+      ["pera", "95", Colors.brown, "lib/images/smoothie/smoothie_pera.png"]
     ];
 
     SmoothieTab({super.key});
@@ -16,6 +16,7 @@ class SmoothieTab extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
       return Scaffold(
+         appBar: AppBar(title: Text('smoothies')),
         body: Padding(
           padding: const EdgeInsets.all(12),
           child: Column(
@@ -24,13 +25,13 @@ class SmoothieTab extends StatelessWidget {
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
                    childAspectRatio: 0.8,),
-                  itemCount: donutsOnSale.length, 
+                  itemCount: smoothiesOnSale.length, 
                   itemBuilder: (context, index) {
                     return SmoothieTile(
-                      donutFlavor: donutsOnSale[index][0],
-                      donutPrice: donutsOnSale[index][1],
-                      donutColor: donutsOnSale[index][2],
-                      imageName: donutsOnSale[index][3],
+                      donutFlavor: smoothiesOnSale[index][0],
+                      donutPrice: smoothiesOnSale[index][1],
+                      donutColor: smoothiesOnSale[index][2],
+                      imageName: smoothiesOnSale[index][3],
                     );
                   },
                 ),

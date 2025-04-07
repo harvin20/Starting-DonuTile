@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
 class PizzaTile extends StatelessWidget {
-  final String donutFlavor;
-  final String donutPrice;
-  final dynamic donutColor;
+  final String pizzaFlavor;
+  final String pizzaPrice;
+  final dynamic pizzaColor;
   final String imageName;
-
+  final VoidCallback onTap;
+  
+  final double borderRadius = 24;
+  
   const PizzaTile({
     super.key,
-    required this.donutFlavor,
-    required this.donutPrice,
-    required this.donutColor,
+    required this.pizzaFlavor,
+    required this.pizzaPrice,
+    this.pizzaColor,
     required this.imageName,
+    required this.onTap,
   });
 
   @override
@@ -20,87 +24,74 @@ class PizzaTile extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-          color: donutColor[50],
-          borderRadius: BorderRadius.circular(24),
+          color: pizzaColor[50],
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(borderRadius),
+            topRight: Radius.circular(borderRadius),
+          ),
         ),
-        child: SingleChildScrollView(  // Permite scroll si el contenido es grande
-          child: Column(
-            mainAxisSize: MainAxisSize.min,  // Evita expansión innecesaria
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: donutColor[100],
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(24),
-                        topRight: Radius.circular(24),
-                      ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: pizzaColor[100],
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                  child: Text(
+                    '\$$pizzaPrice',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: pizzaColor[800],
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+              child: Image.asset(imageName),
+            ),
+            Text(
+              pizzaFlavor,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            const Text(
+              'Pizzas',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(Icons.favorite, color: Colors.red[400]),
+                  GestureDetector(
+                    onTap: onTap,
                     child: Text(
-                      "\$$donutPrice",
+                      "Add", 
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: donutColor[900],
+                        fontSize: 20,
+                        decoration: TextDecoration.underline,
                       ),
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),  // Padding reducido
-                child: Image.asset(
-                  imageName,
-                  height: 70,  // Altura controlada
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Column(
-                  children: [
-                    Text(
-                      donutFlavor,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "Dunkin's",
-                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.favorite_border),
-                      color: Colors.grey,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.add),
-                      color: donutColor[100],
-                      iconSize: 28,
-                      onPressed: () {},
-                      style: IconButton.styleFrom(
-                        backgroundColor: donutColor[000],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

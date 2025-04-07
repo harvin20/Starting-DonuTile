@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class PancakesTile extends StatelessWidget {
-  final String donutFlavor;
+  final String pancakesFlavor;
   final String donutPrice;
   final dynamic donutColor;
   final String imageName;
 
   const PancakesTile({
     super.key,
-    required this.donutFlavor,
+    required this.pancakesFlavor,
     required this.donutPrice,
     required this.donutColor,
     required this.imageName,
@@ -63,12 +63,12 @@ class PancakesTile extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      donutFlavor,
+                      pancakesFlavor,
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     SizedBox(height: 5),
                     Text(
-                      "Dunkin's",
+                      "pancakes's",
                       style: TextStyle(color: Colors.grey[600], fontSize: 14),
                     ),
                   ],

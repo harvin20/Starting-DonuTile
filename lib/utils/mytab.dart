@@ -13,7 +13,7 @@ class Mytab extends StatelessWidget {
       child: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(16)
+              color: Colors.white, borderRadius: BorderRadius.circular(16),
               //Borde redondeado
               ),
           //ruta del archivo

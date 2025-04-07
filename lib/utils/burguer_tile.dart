@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+
 class BurguerTile extends StatelessWidget {
-  final String donutFlavor;
-  final String donutPrice;
-  final dynamic donutColor;
+  final String burguerFlavor;
+  final String burguerPrice;
+  final dynamic burguerColor;
   final String imageName;
 
   const BurguerTile({
     super.key,
-    required this.donutFlavor,
-    required this.donutPrice,
-    required this.donutColor,
+    required this.burguerFlavor,
+    required this.burguerPrice,
+    required this.burguerColor,
     required this.imageName,
   });
 
@@ -19,7 +20,7 @@ class BurguerTile extends StatelessWidget {
       padding: const EdgeInsets.all(12.0),
       child: Container(
         decoration: BoxDecoration(
-          color: donutColor[50],
+          color: burguerColor[50],
           borderRadius: BorderRadius.circular(24),
         ),
         child: SingleChildScrollView(  // Permite scroll si el contenido es grande
@@ -31,7 +32,7 @@ class BurguerTile extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: donutColor[100],
+                      color: burguerColor[100],
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(24),
                         topRight: Radius.circular(24),
@@ -39,11 +40,11 @@ class BurguerTile extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
                     child: Text(
-                      "\$$donutPrice",
+                      "\$$burguerPrice",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
-                        color: donutColor[900],
+                        color: burguerColor[900],
                       ),
                     ),
                   ),
@@ -62,12 +63,12 @@ class BurguerTile extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      donutFlavor,
+                      burguerFlavor,
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     SizedBox(height: 5),
                     Text(
-                      "Dunkin's",
+                      "burguer's",
                       style: TextStyle(color: Colors.grey[600], fontSize: 14),
                     ),
                   ],
@@ -85,11 +86,11 @@ class BurguerTile extends StatelessWidget {
                     ),
                     IconButton(
                       icon: Icon(Icons.add),
-                      color: donutColor[100],
+                      color: burguerColor[100],
                       iconSize: 28,
                       onPressed: () {},
                       style: IconButton.styleFrom(
-                        backgroundColor: donutColor[000],
+                        backgroundColor: burguerColor[000],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
